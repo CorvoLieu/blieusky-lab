@@ -1,0 +1,3 @@
+night.haolieu-blieusky.net {
+    reverse_proxy jellyfin:8096
+}
