@@ -11,3 +11,9 @@ jellyfin:
 
 jellyfin-stop:
 	@docker compose -f ./jellyfin-app/docker-compose.yml down -v
+
+ddc:
+	@docker compose -f ./ddclient/docker-compose.yml up -d
+
+ddc-stop:
+	@docker compose -f ./ddclient/docker-compose.yml down -v
