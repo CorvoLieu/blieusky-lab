@@ -17,3 +17,9 @@ ddc:
 
 ddc-stop:
 	@docker compose -f ./ddclient/docker-compose.yml down -v
+
+ewelink:
+	@docker compose -f ./ewelink/docker-compose.yml up -d
+
+ewelink-stop:
+	@docker compose -f ./ewelink/docker-compose.yml down -v

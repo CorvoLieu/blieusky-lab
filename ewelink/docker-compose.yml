@@ -1,0 +1,17 @@
+version: "3"
+services:
+  ewelink:
+    image: ewelink/ewelink-smart-home
+    container_name: ewelink
+    restart: unless-stopped
+    ports:
+      - "8321:8321"
+    volumes:
+      - ./data:/workspace/data
+    network_mode: host
+    networks:
+      - caddy_network
+
+networks:
+  caddy_network:
+    external: true
