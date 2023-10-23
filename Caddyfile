@@ -1,0 +1,7 @@
+night.haolieu-skyblieu.net {
+    reverse_proxy jellyfin:8096
+}
+
+request.haolieu-skyblieu.net {
+    reverse_proxy ombi:3579
+}
