@@ -1,4 +1,5 @@
 .DEFAULT_GOAL := run-site
+.PHONY: run-site stop-site jellyfin jellyfin-stop ddc ddc-stop
 
 run-site:
 	@docker compose up -d
