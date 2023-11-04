@@ -8,10 +8,12 @@ services:
     volumes:
       - ./data/jellyfin/config:/config
       - ./config.json:/jellyfin/jellyfin-web/config.json
-      - ./data/tvshows:/data/tvshows
-      - ./data/movies:/data/movies
       - jellyfin_cache:/cache
+      - ${MOUNT_DRIVE_DIR}/tvshows:/data/tvshows
+      - ${MOUNT_DRIVE_DIR}/movies:/data/movies
     restart: 'unless-stopped'
+    env_file:
+      - .env
     environment:
       - PUID=1000
       - PGID=1000
@@ -29,8 +31,10 @@ services:
       - TZ=Asia/Ho_Chi_Minh
     volumes:
       - ./data/sonarr/config:/config
-      - ./data/tvshows:/tv #optional
+      - ${MOUNT_DRIVE_DIR}/tvshows:/tv #optional
       - ./data/downloads:/downloads #optional
+    env_file:
+      - .env
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -46,8 +50,10 @@ services:
       - TZ=Asia/Ho_Chi_Minh
     volumes:
       - ./data/radarr/config:/config
-      - ./data/movies:/movies #optional
+      - ${MOUNT_DRIVE_DIR}/movies:/movies #optional
       - ./data/downloads:/downloads #optional
+    env_file:
+      - .env
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -91,17 +97,16 @@ services:
     networks:
       - caddy_network
 
-  ombi:
-    image: lscr.io/linuxserver/ombi:latest
-    container_name: ombi
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
     environment:
-      - PUID=1000
-      - PGID=1000
+      - LOG_LEVEL=debug
       - TZ=Asia/Ho_Chi_Minh
-    volumes:
-      - ./data/ombi/config:/config
     # ports:
-    #   - 3579:3579
+  #     - 5055:5055
+    volumes:
+      - ./data/jellyseerr:/app/config
     restart: unless-stopped
     networks:
       - caddy_network

@@ -3,5 +3,5 @@ night.haolieu-skyblieu.net {
 }
 
 request.haolieu-skyblieu.net {
-    reverse_proxy ombi:3579
+    reverse_proxy jellyseerr:5055
 }
