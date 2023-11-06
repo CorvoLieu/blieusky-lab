@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  wireshark: 
+    image: linuxserver/wireshark
+    container_name: wireshark
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    # security_opt:
+    #   - seccomp:unconfined #optional
+    networks:
+      - caddy_network
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - ./data:/config
+    ports:
+      - 3000:3000 #optional
+      - 3001:3001 #optional
+
+networks:
+  caddy_network:
+    external: true
