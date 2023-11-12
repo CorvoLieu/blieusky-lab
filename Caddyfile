@@ -5,3 +5,7 @@ night.haolieu-skyblieu.net {
 request.haolieu-skyblieu.net {
     reverse_proxy jellyseerr:5055
 }
+
+linkstack.haolieu-skyblieu.net {
+    reverse_proxy linkstack:443
+}
