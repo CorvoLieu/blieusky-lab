@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := run-site
-.PHONY: run-site stop-site jellyfin jellyfin-stop ddc ddc-stop
+.PHONY: run-site stop-site jellyfin jellyfin-stop ddc ddc-stop 
 
 run-site:
 	@docker compose up -d
@@ -18,3 +18,9 @@ ddc:
 
 ddc-stop:
 	@docker compose -f ./ddclient/docker-compose.yml down -v
+
+wireshark:
+	@docker compose -f ./wireshark/docker-compose.yml up -d
+
+wireshark-stop:
+	@docker compose -f ./wireshark/docker-compose.yml down -v
