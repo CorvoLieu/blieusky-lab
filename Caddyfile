@@ -5,3 +5,34 @@ night.haolieu-skyblieu.net {
 request.haolieu-skyblieu.net {
     reverse_proxy jellyseerr:5055
 }
+
+linkstack.haolieu-skyblieu.net {
+    reverse_proxy linkstack:80 {
+        # Set headers
+        header_up Host {http.request.host}
+        header_up X-Real-IP {http.request.remote.host}
+        header_up X-Forwarded-For {http.request.remote}
+        header_up X-VerifiedViaNginx "yes"
+        header_up Upgrade {http.request.header.Upgrade}
+        header_up Connection {http.request.header.Connection}
+
+        # Set timeouts (if needed, adjust as per your requirements)
+        transport http {
+            read_buffer 8192
+            write_buffer 8192
+            dial_timeout 60s
+            response_header_timeout 60s
+        }
+    }
+
+    # Add header for Content-Security-Policy
+    header Content-Security-Policy "upgrade-insecure-requests"
+
+    # Caddy automatically handles HTTP/2 and WebSockets
+
+}
+
+
+http://, https:// {
+    redir https://{host}{uri}
+}

@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  linkstack:
+    image: ghcr.io/linkstackorg/linkstack
+    container_name: linkstack
+    restart: unless-stopped
+    pull_policy: always
+    volumes:
+      - linkstack:/htdocs
+    # ports:
+    #   - 80:80
+    #   - 443:443
+    env_file:
+      - .env
+    environment:
+      - HTTP_SERVER_NAME="linkstack.haolieu-skyblieu.net"
+      - HTTPS_SERVER_NAME="linkstack.haolieu-skyblieu.net"
+      - TZ="Asia/Ho_Chi_Minh"
+      - SERVER_ADMIN=${ADMIN_EMAIL}
+    networks:
+      - caddy_network
+
+networks:
+  caddy_network:
+    external: true
+
+volumes:
+  linkstack:
