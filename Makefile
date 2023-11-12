@@ -29,4 +29,4 @@ linkstack:
 	@docker compose -f ./linkstack/docker-compose.yml up -d
 
 linkstack-stop:
-	@docker compose -f ./linkstack/docker-compose.yml down -v
+	@docker compose -f ./linkstack/docker-compose.yml down
