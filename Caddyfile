@@ -33,7 +33,7 @@ linkstack.haolieu-skyblieu.net {
 }
 
 rabbitmq.haolieu-skyblieu.net {
-    reverse_proxy rabbitmq:15672
+    reverse_proxy rabbitmq:5672
 }
 
 http://, https:// {

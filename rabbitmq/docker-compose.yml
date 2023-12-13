@@ -1,10 +1,10 @@
 version: "3"
 
 services:
-  mqrabbit:
-    image: rabbitmq:latest
-    container_name: mqrabbit
-    hostname: mqrabbit
+  rabbitmq:
+    image: rabbitmq:3
+    container_name: rabbitmq
+    hostname: rabbitmq
     # ports:
     #   - "5672:5672"
     #   - "15672:15672"
