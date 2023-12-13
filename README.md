@@ -19,3 +19,5 @@ My personal lab, space for me to mess around and test new things.
 * Stop jellyfin: `make jellyfin-stop`
 * Run ddclient: `make ddc`
 * Stop ddclient: `make ddc-stop`
+* Run rabbitmq: `make rabbitmq`
+* Stop rabbitmq: `make rabbitmq-stop`

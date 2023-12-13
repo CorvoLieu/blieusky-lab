@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  mqrabbit:
+    image: rabbitmq:latest
+    container_name: mqrabbit
+    hostname: mqrabbit
+    # ports:
+    #   - "5672:5672"
+    #   - "15672:15672"
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmq
+    env_file:
+      - rabbitmq.env
+    environment:
+      - RABBITMQ_DEFAULT_USER=blieu

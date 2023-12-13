@@ -32,6 +32,9 @@ linkstack.haolieu-skyblieu.net {
 
 }
 
+rabbitmq.haolieu-skyblieu.net {
+    reverse_proxy rabbitmq:15672
+}
 
 http://, https:// {
     redir https://{host}{uri}

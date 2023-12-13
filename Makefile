@@ -30,3 +30,9 @@ linkstack:
 
 linkstack-stop:
 	@docker compose -f ./linkstack/docker-compose.yml down
+
+rabbitmq:
+	@docker compose -f ./rabbitmq/docker-compose.yml up -d
+
+rabbitmq-stop:
+	@docker compose -f ./rabbitmq/docker-compose.yml -v down
