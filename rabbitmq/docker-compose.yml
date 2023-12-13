@@ -14,3 +14,9 @@ services:
       - rabbitmq.env
     environment:
       - RABBITMQ_DEFAULT_USER=blieu
+    networks:
+      - caddy_network
+
+networks:
+  caddy_network:
+    external: true
