@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := run-site
-.PHONY: run-site stop-site jellyfin jellyfin-stop ddc ddc-stop wireshark wireshark-stop linkstack linkstack-stop
+.PHONY: run-site stop-site jellyfin jellyfin-stop ddc ddc-stop wireshark wireshark-stop linkstack linkstack-stop rabbitmq rabbitmq-stop
 
 run-site:
 	@docker compose up -d
